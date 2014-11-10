@@ -1,7 +1,5 @@
 package com.hcsinergia.delver.service.impl;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,19 +21,16 @@ public class TamboServiceImpl implements TamboService {
 	 * @see com.hcsinergia.delver.service.BaseService#processEntity(java.util.List)
 	 */
 	@Override
-	public String processEntity(List<String> input) throws BussinessException {
-		SimpleDateFormat sdf = new SimpleDateFormat("ddMMyy");
-		SimpleDateFormat sdfTime = new SimpleDateFormat("hhmm");		
-		try {
+	public String processEntity(List<String> input) throws BussinessException {	
 			Tambo tambo = new Tambo();
 			tambo.setNroTambo(Integer.valueOf(input.get(3)));
 			tambo.setTouridx(input.get(4));
 			tambo.setRemito(Integer.valueOf(input.get(5)));
 			tambo.setCodigoTambero(Integer.valueOf(input.get(6)));
-			tambo.setHoraFin(sdfTime.parse(input.get(7)));
-			tambo.setHoraInicio(sdfTime.parse(input.get(8)));
-			tambo.setFechaInicio(sdf.parse(input.get(9)));
-			tambo.setFechaFin(sdf.parse(input.get(10)));
+			tambo.setHoraFin(input.get(7));
+			tambo.setHoraInicio(input.get(8));
+			tambo.setFechaInicio(input.get(9));
+			tambo.setFechaFin(input.get(10));
 			tambo.setCantidadTotal(Float.valueOf(input.get(11)));
 			tambo.setCompa(Integer.valueOf(input.get(12)));
 			tambo.setCantidadA(Float.valueOf(input.get(13)));
@@ -54,9 +49,6 @@ public class TamboServiceImpl implements TamboService {
 			tambo.setChkSum(input.get(26));
 			dao.persist(tambo);
 			return MessageConstants.OK_RESPONSE;
-		} catch (ParseException e) {
-			throw new BussinessException(e.getMessage());
-		}
 	}
 
 	@Override

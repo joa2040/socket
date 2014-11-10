@@ -45,8 +45,8 @@ public class DispatcherSocketServiceImpl implements DispatcherSocketService {
 				return MessageConstants.OK_RESPONSE;
 			}
 			this.checkSum(data, input);
+			logger.info("Entity: " + data.get(ENTITY_POSITION).toUpperCase());
 			String bean = data.get(ENTITY_POSITION).toLowerCase() + APPEND_SERVICE_IMPL;
-			logger.info("Entity: " + bean.toUpperCase());
 			BaseService service = (BaseService) context.getBean(bean);
 			return service.processEntity(data);
 //			return MessageConstants.OK_RESPONSE;
@@ -58,7 +58,7 @@ public class DispatcherSocketServiceImpl implements DispatcherSocketService {
 	}
 	
 	private void checkSum (List<String> data, String input) throws BussinessException {
-		try {
+//		try {
 			String checkSum = data.get(data.size() - 1);
 			logger.info("checkSum: " + checkSum);
 			
@@ -71,9 +71,9 @@ public class DispatcherSocketServiceImpl implements DispatcherSocketService {
 			if (decimalCheckSum != sumBytes) {
 				throw new BussinessException("CheckSum incorrecto");
 			}
-		} catch (Exception e) {
-			logger.error("CheckSum failed: " + e.getMessage(), e);
-		}
+//		} catch (Exception e) {
+//			logger.error("CheckSum failed: " + e.getMessage(), e);
+//		}
 	}
 	
 	private DatoCrudo fillDatoCrudo(String dato) {

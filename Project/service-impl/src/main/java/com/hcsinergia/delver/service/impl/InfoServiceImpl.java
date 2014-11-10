@@ -1,7 +1,5 @@
 package com.hcsinergia.delver.service.impl;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,21 +23,15 @@ public class InfoServiceImpl implements InfoService{
 	@Override
 	public String processEntity(List<String> input) throws BussinessException{
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("ddMMyy");
-		SimpleDateFormat sdfTime = new SimpleDateFormat("hhmm");		
-		try {
 			Info info = new Info();
 			info.setNroInfo(Integer.valueOf(input.get(3)));
 			info.setTouridx(input.get(4));
 			info.setInfono(input.get(5));
-			info.setTime(sdfTime.parse(input.get(6)));
-			info.setDate(sdf.parse(input.get(7)));
+			info.setTime(input.get(6));
+			info.setDate(input.get(7));
 			info.setChkSum(input.get(8));
 			dao.persist(info);
 			return MessageConstants.OK_RESPONSE;
-		} catch (ParseException e) {
-			throw new BussinessException(e.getMessage());
-		}
 	}
 
 	@Override

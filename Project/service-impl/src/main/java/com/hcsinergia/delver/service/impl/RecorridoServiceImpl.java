@@ -1,7 +1,5 @@
 package com.hcsinergia.delver.service.impl;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,30 +21,24 @@ public class RecorridoServiceImpl implements RecorridoService{
 	 * @see com.hcsinergia.delver.service.BaseService#processEntity(java.util.List)
 	 */
 	@Override
-	public String processEntity(List<String> input) throws BussinessException {
-		SimpleDateFormat sdf = new SimpleDateFormat("ddMMyy");
-		SimpleDateFormat sdfTime = new SimpleDateFormat("hhmm");		
-		try {
+	public String processEntity(List<String> input) throws BussinessException {		
 			Recorrido recorrido = new Recorrido();
 			recorrido.setNroRecorrido(Integer.valueOf(input.get(3)));
 			recorrido.setTouridx(input.get(4));
 			recorrido.setNroCamion(Integer.valueOf(input.get(5)));
 			recorrido.setNroCuenta(Integer.valueOf(input.get(6)));
-			recorrido.setRemito(Integer.valueOf(input.get(7)));
+			recorrido.setRemito(!input.get(7).isEmpty() ? Integer.valueOf(input.get(7)) : 0);
 			recorrido.setNroAcoplado(Integer.valueOf(input.get(8)));
 			recorrido.setRecorrido(Integer.valueOf(input.get(9)));
-			recorrido.setHoraInicio(sdfTime.parse(input.get(10)));
-			recorrido.setHoraFin(sdfTime.parse(input.get(11)));
-			recorrido.setFechaInicio(sdf.parse(input.get(12)));
-			recorrido.setFechaFin(sdf.parse(input.get(13)));
+			recorrido.setHoraInicio(input.get(10));
+			recorrido.setHoraFin(input.get(11));
+			recorrido.setFechaInicio(input.get(12));
+			recorrido.setFechaFin(input.get(13));
 			recorrido.setCantidadTotal(Float.valueOf(input.get(14)));
 			recorrido.setContadorMuestras(Integer.valueOf(input.get(15)));			
 			recorrido.setChkSum(input.get(16));
 			dao.persist(recorrido);
 			return MessageConstants.OK_RESPONSE;
-		} catch (ParseException e) {
-			throw new BussinessException(e.getMessage());
-		}
 	}
 
 	@Override

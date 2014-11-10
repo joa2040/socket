@@ -1,7 +1,5 @@
 package com.hcsinergia.delver.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,16 +36,16 @@ public class Tambo extends BaseEntity {
 	private int codigoTambero;
 	
 	@Column
-	private Date horaInicio;
+	private String horaInicio;
 	
 	@Column
-	private Date horaFin;
+	private String horaFin;
 	
 	@Column
-	private Date fechaInicio;
+	private String fechaInicio;
 	
 	@Column
-	private Date fechaFin;
+	private String fechaFin;
 	
 	@Column
 	private Float cantidadTotal;
@@ -154,56 +152,56 @@ public class Tambo extends BaseEntity {
 	/**
 	 * @return the horaInicio
 	 */
-	public Date getHoraInicio() {
+	public String getHoraInicio() {
 		return horaInicio;
 	}
 
 	/**
 	 * @param horaInicio the horaInicio to set
 	 */
-	public void setHoraInicio(Date horaInicio) {
+	public void setHoraInicio(String horaInicio) {
 		this.horaInicio = horaInicio;
 	}
 
 	/**
 	 * @return the horaFin
 	 */
-	public Date getHoraFin() {
+	public String getHoraFin() {
 		return horaFin;
 	}
 
 	/**
 	 * @param horaFin the horaFin to set
 	 */
-	public void setHoraFin(Date horaFin) {
+	public void setHoraFin(String horaFin) {
 		this.horaFin = horaFin;
 	}
 
 	/**
 	 * @return the fechaInicio
 	 */
-	public Date getFechaInicio() {
+	public String getFechaInicio() {
 		return fechaInicio;
 	}
 
 	/**
 	 * @param fechaInicio the fechaInicio to set
 	 */
-	public void setFechaInicio(Date fechaInicio) {
+	public void setFechaInicio(String fechaInicio) {
 		this.fechaInicio = fechaInicio;
 	}
 
 	/**
 	 * @return the fechaFin
 	 */
-	public Date getFechaFin() {
+	public String getFechaFin() {
 		return fechaFin;
 	}
 
 	/**
 	 * @param fechaFin the fechaFin to set
 	 */
-	public void setFechaFin(Date fechaFin) {
+	public void setFechaFin(String fechaFin) {
 		this.fechaFin = fechaFin;
 	}
 

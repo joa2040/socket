@@ -1,7 +1,5 @@
 package com.hcsinergia.delver.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,10 +33,10 @@ public class Info extends BaseEntity {
 	private String infono;
 	
 	@Column
-	private Date time;
+	private String time;
 	
 	@Column
-	private Date date;
+	private String date;
 	
 	/**
 	 * @return the id
@@ -85,28 +83,28 @@ public class Info extends BaseEntity {
 	/**
 	 * @return the time
 	 */
-	public Date getTime() {
+	public String getTime() {
 		return time;
 	}
 
 	/**
 	 * @param time the time to set
 	 */
-	public void setTime(Date time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 
 	/**
-	 * @return the date
+	 * @return the String
 	 */
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
 	/**
-	 * @param date the date to set
+	 * @param String the String to set
 	 */
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 }

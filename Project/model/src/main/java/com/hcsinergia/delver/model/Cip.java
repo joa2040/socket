@@ -1,7 +1,5 @@
 package com.hcsinergia.delver.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,13 +33,13 @@ public class Cip extends BaseEntity {
 	private int nroCamion;
 	
 	@Column
-	private Date horaInicio;
+	private String horaInicio;
 	
 	@Column
-	private Date horaFin;
+	private String horaFin;
 	
 	@Column
-	private Date fecha;
+	private String fecha;
 	
 	@Column
 	private Float tempaver;
@@ -100,42 +98,42 @@ public class Cip extends BaseEntity {
 	/**
 	 * @return the horaInicio
 	 */
-	public Date getHoraInicio() {
+	public String getHoraInicio() {
 		return horaInicio;
 	}
 
 	/**
 	 * @param horaInicio the horaInicio to set
 	 */
-	public void setHoraInicio(Date horaInicio) {
+	public void setHoraInicio(String horaInicio) {
 		this.horaInicio = horaInicio;
 	}
 
 	/**
 	 * @return the horaFin
 	 */
-	public Date getHoraFin() {
+	public String getHoraFin() {
 		return horaFin;
 	}
 
 	/**
 	 * @param horaFin the horaFin to set
 	 */
-	public void setHoraFin(Date horaFin) {
+	public void setHoraFin(String horaFin) {
 		this.horaFin = horaFin;
 	}
 
 	/**
 	 * @return the fecha
 	 */
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 
 	/**
 	 * @param fecha the fecha to set
 	 */
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 

@@ -1,7 +1,5 @@
 package com.hcsinergia.delver.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,10 +36,10 @@ public class Trasvase extends BaseEntity{
 	private int trailerno;
 	
 	@Column
-	private Date timestart;
+	private String timestart;
 	
 	@Column
-	private Date dateStart;
+	private String StringStart;
 	
 	@Column
 	private Float cantidad;
@@ -105,29 +103,29 @@ public class Trasvase extends BaseEntity{
 	/**
 	 * @return the timestart
 	 */
-	public Date getTimestart() {
+	public String getTimestart() {
 		return timestart;
 	}
 
 	/**
 	 * @param timestart the timestart to set
 	 */
-	public void setTimestart(Date timestart) {
+	public void setTimestart(String timestart) {
 		this.timestart = timestart;
 	}
 
 	/**
-	 * @return the dateStart
+	 * @return the StringStart
 	 */
-	public Date getDateStart() {
-		return dateStart;
+	public String getStringStart() {
+		return StringStart;
 	}
 
 	/**
-	 * @param dateStart the dateStart to set
+	 * @param StringStart the StringStart to set
 	 */
-	public void setDateStart(Date dateStart) {
-		this.dateStart = dateStart;
+	public void setStringStart(String StringStart) {
+		this.StringStart = StringStart;
 	}
 
 	/**
